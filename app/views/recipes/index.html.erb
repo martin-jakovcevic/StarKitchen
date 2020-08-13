@@ -1,4 +1,8 @@
-<h1>Star Kitchen</h1>
+<h1>Star Kitchen, Recipes!!!</h1>
 
 
-test test!!!!!!!!!
+<ul>
+<% @recipes.each do |recipe| %>
+  <li><%= recipe.title %></li>
+<% end %>
+</ul>
