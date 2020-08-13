@@ -1,8 +1,9 @@
 <h1>Star Kitchen, Recipes!!!</h1>
 
-
 <ul>
-<% @recipes.each do |recipe| %>
-  <li><%= recipe.title %></li>
-<% end %>
+  <% @recipes.each do |recipe| %>
+    <li>
+      <%= link_to recipe.title, recipe_path(recipe) %>
+    </li>
+  <% end %>
 </ul>
