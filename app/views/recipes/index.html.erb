@@ -9,7 +9,7 @@
       <li>
         <%= link_to recipe.title, recipe_path(recipe) %>
         <%= link_to 'Edit', edit_recipe_path(recipe) %>
-        <%= link_to 'Delete', root_path %>
+        <%= link_to 'Delete', recipe_path(recipe), method: :delete, data: {confirm: "Please confirm that you agree to delete this recipe." } %>
       </li>
     <% end %>
   </ul>
