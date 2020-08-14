@@ -1,22 +1,25 @@
-<% if recipe.errors.any? %>
-  <div id="error_explanation">
-    <h2>
-      <%= pluralize(recipe.errors.count, "error") %> prohibited this recipe to be created:
-    </h2>
-
-    <ul>
-      <% recipe.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-    </ul>
-  </div>
-<% end %>
-
 <div class="container has-background-black-ter">
   <div class="columns is-multiline has-background-black-ter">
+    <% if recipe.errors.any? %>
+      <div class="column is-4 is-offset-4">
+        <article class="message is-dark">
+          <div class="message-body">
+            <p><%= pluralize(recipe.errors.count, "error") %> prohibited this recipe to be created:</p>
+            <br>
+            <p>
+            <% recipe.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+            </p>
+          </div>
+        </article>
+      </div>
+    <% end %>
+
+
     <div class="column is-4 is-offset-4">
       <div class="content is-size-2">
-      <%= headline %>
+        <%= headline %>
       </div>
     </div>
 
