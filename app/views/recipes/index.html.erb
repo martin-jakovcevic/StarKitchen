@@ -1,15 +1,31 @@
-<h1>Star Kitchen, Recipes!!!</h1>
+<div class="container has-background-black-ter">
+  <div class="columns is-multiline has-background-black-ter">
+    <div class="column is-4 is-offset-4">
+      <div class="content is-size-3">
+        Star Kitchen, Recipes!!!
+      </div>
+    </div>
 
-
-
-<h2>
-  <ul>
     <% @recipes.each do |recipe| %>
-      <li>
-        <%= link_to recipe.title, recipe_path(recipe) %>
-        <%= link_to 'Edit', edit_recipe_path(recipe) %>
-        <%= link_to 'Delete', recipe_path(recipe), method: :delete, data: {confirm: "Please confirm that you agree to delete this recipe." } %>
-      </li>
+      <div class="column is-4 is-offset-4">
+        <div class="card has-text-white	has-background-grey-dark">
+          <header class="card-header">
+            <p class="card-header-title has-text-white">
+              <%= recipe.title %>
+            </p>
+          </header>
+          <div class="card-content ">
+            <div class="content ">
+              <%= recipe.description %>
+            </div>
+          </div>
+          <footer class="card-footer ">
+            <%= link_to 'Show', recipe_path(recipe), class: "card-footer-item"%>
+            <%= link_to 'Edit', edit_recipe_path(recipe), class: "card-footer-item"%>
+            <%= link_to 'Delete', recipe_path(recipe), class:"card-footer-item", method: :delete, data: {confirm: "Please confirm that you agree to delete this recipe." } %>
+          </footer>
+        </div>
+      </div>
     <% end %>
-  </ul>
-</h2>
+  </div>
+</div>
