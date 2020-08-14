@@ -1,39 +1,60 @@
-<% if @recipe.errors.any? %>
+<% if recipe.errors.any? %>
   <div id="error_explanation">
     <h2>
-      <%= pluralize(@recipe.errors.count, "error") %> prohibited this recipe to be created:
+      <%= pluralize(recipe.errors.count, "error") %> prohibited this recipe to be created:
     </h2>
 
     <ul>
-      <% @recipe.errors.full_messages.each do |msg| %>
+      <% recipe.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
     </ul>
   </div>
 <% end %>
 
+<div class="container has-background-black-ter">
+  <div class="columns is-multiline has-background-black-ter">
+    <div class="column is-4 is-offset-4">
+      <div class="content is-size-2">
+      <%= headline %>
+      </div>
+    </div>
 
-<%= form_with model: @recipe, local: true do |form| %>
-  <p>
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-  </p>
+    <div class="column is-4 is-offset-4">
+      <%= form_with model: recipe, local: true do |form| %>
+        <div class="field ">
+          <%= form.label :title, class: "label has-text-light" %>
+          <div class="control">
+            <%= form.text_field :title, class: "input", placeholder: "Text input" %>
+          </div>
+        </div>
 
-  <p>
-    <%= form.label :description %>
-    <%= form.text_area :description %>
-  </p>
+        <div class="field">
+          <%= form.label :description, class: "label has-text-light" %>
+          <div class="control">
+            <%= form.text_area :description, class: "textarea", placeholder: "Description of a recipe"%>
+          </div>
+        </div>
 
-  <p>
-    <%= form.label :instructions %>
-    <%= form.text_area :instructions %>
-  </p>
 
-  <p>
-    <%= form.submit button_name %>
-  </p>
-<% end %>
+        <div class="field">
+          <%= form.label :instructions, class: "label has-text-light" %>
+          <div class="control">
+          <%= form.text_area :instructions, class: "textarea", placeholder:"Instructions for the recipe"%>
+          </div>
+        </div>
 
-<h1> <%= link_to 'Back', root_path %> </h1>
 
+        <div class="field is-grouped">
+          <div class="control">
+            <%= form.submit button_name, class: "button is-light has-text-dark" %>
+          </div>
+          <div class="control">
+            <%= link_to 'Back', back_path, class: "button is-light has-text-dark" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
 

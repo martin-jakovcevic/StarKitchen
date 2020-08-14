@@ -19,13 +19,14 @@
               <%= recipe.description %>
             </div>
           </div>
-          <footer class="card-footer ">
-            <%= link_to 'Show', recipe_path(recipe), class: "card-footer-item"%>
-            <%= link_to 'Edit', edit_recipe_path(recipe), class: "card-footer-item"%>
-            <%= link_to 'Delete', recipe_path(recipe), class:"card-footer-item", method: :delete, data: {confirm: "Please confirm that you agree to delete this recipe." } %>
+          <footer class="card-footer  ">
+            <%= link_to 'Show', recipe_path(recipe), class: "card-footer-item has-text-light"%>
+            <%= link_to 'Edit', edit_recipe_path(recipe), class: "card-footer-item has-text-light"%>
+            <%= link_to 'Delete', recipe_path(recipe), class:"card-footer-item has-text-light", method: :delete, data: {confirm: "Please confirm that you agree to delete this recipe." } %>
           </footer>
         </div>
       </div>
     <% end %>
   </div>
 </div>
+
