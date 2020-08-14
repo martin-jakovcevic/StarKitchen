@@ -1,13 +1,15 @@
 <h1>Star Kitchen, Recipes!!!</h1>
 
 
-<h1> <%= link_to 'New Recipe', "recipes/new" %> </h1>
+<h1> <%= link_to 'New Recipe', new_recipe_path %> </h1>
 
 <h2>
   <ul>
     <% @recipes.each do |recipe| %>
       <li>
         <%= link_to recipe.title, recipe_path(recipe) %>
+        <%= link_to 'Edit', edit_recipe_path(recipe) %>
+        <%= link_to 'Delete', root_path %>
       </li>
     <% end %>
   </ul>
