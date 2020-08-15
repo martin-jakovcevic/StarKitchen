@@ -30,9 +30,6 @@
           <div class="control">
             <%= form.text_field :title, class: "input", placeholder: "Text input" %>
           </div>
-          <% if recipe.errors.any? %>
-            <p class="help is-danger">This title is invalid</p>
-          <% end %>
         </div>
 
         <div class="field">
@@ -40,9 +37,6 @@
           <div class="control">
             <%= form.text_area :description, class: "textarea", placeholder: "Description of a recipe"%>
           </div>
-          <% if recipe.errors.any? %>
-            <p class="help is-danger">This description is invalid</p>
-          <% end %>
         </div>
 
 
@@ -51,9 +45,6 @@
           <div class="control">
           <%= form.text_area :instructions, class: "textarea", placeholder:"Instructions for the recipe"%>
           </div>
-          <% if recipe.errors.any? %>
-            <p class="help is-danger">This instructions are invalid</p>
-          <% end %>
         </div>
 
 
