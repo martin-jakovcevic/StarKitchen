@@ -2,46 +2,14 @@
   <div class="columns is-multiline has-background-black-ter">
     <div class="column is-2 is-offset-4">
       <div class="content is-size-3">
-        <%= @recipe.title %>
+        <div class="card-content">
+          <%= @recipe.title %>
+        </div>
       </div>
     </div>
+
     <div class="column is-4 is-offset-4">
-      <div class="card has-text-white	has-background-grey-dark">
-        <header class="card-header">
-          <p class="card-header-title has-text-white ">
-            Description
-          </p>
-        </header>
-        <div class="card-content ">
-          <div class="content ">
-            <%= @recipe.description %>
-          </div>
-        </div>
-        <footer class="card-footer ">
-          <%= link_to 'Back', root_path, class:"card-footer-item has-text-light" %>
-          <%= link_to 'Edit', edit_recipe_path(@recipe), class: "card-footer-item has-text-light"%>
-          <%= link_to 'Delete', recipe_path(@recipe), class:"card-footer-item has-text-light", method: :delete, data: {confirm: "Please confirm that you agree to delete this recipe." } %>
-        </footer>
-      </div>
-    </div>
-    <div class="column is-4 is-offset-4">
-      <div class="card has-text-white	has-background-grey-dark">
-        <header class="card-header">
-          <p class="card-header-title has-text-white ">
-            Instructions
-          </p>
-        </header>
-        <div class="card-content ">
-          <div class="content ">
-            <%= @recipe.instructions %>
-          </div>
-        </div>
-        <footer class="card-footer ">
-          <%= link_to 'Back', root_path, class:"card-footer-item has-text-light" %>
-          <%= link_to 'Edit', edit_recipe_path(@recipe), class: "card-footer-item has-text-light"%>
-          <%= link_to 'Delete', recipe_path(@recipe), class:"card-footer-item has-text-light", method: :delete, data: {confirm: "Please confirm that you agree to delete this recipe." } %>
-        </footer>
-      </div>
+      <%= render @recipe, show: true, instruction: false %>
     </div>
   </div>
 </div>

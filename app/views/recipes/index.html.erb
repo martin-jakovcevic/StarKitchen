@@ -1,30 +1,16 @@
 <div class="container has-background-black-ter">
   <div class="columns is-multiline has-background-black-ter">
     <div class="column is-4 is-offset-4">
-      <div class="content is-size-3">
-        Star Kitchen, Recipes!!!
+      <div class="content is-size-2">
+        <div class="card-content">
+          Star Kitchen, Recipes!
+        </div>
       </div>
     </div>
 
     <% @recipes.each do |recipe| %>
       <div class="column is-4 is-offset-4">
-        <div class="card has-text-white	has-background-grey-dark">
-          <header class="card-header">
-            <p class="card-header-title has-text-white">
-              <%= recipe.title %>
-            </p>
-          </header>
-          <div class="card-content ">
-            <div class="content ">
-              <%= recipe.description %>
-            </div>
-          </div>
-          <footer class="card-footer  ">
-            <%= link_to 'Show', recipe_path(recipe), class: "card-footer-item has-text-light"%>
-            <%= link_to 'Edit', edit_recipe_path(recipe), class: "card-footer-item has-text-light"%>
-            <%= link_to 'Delete', recipe_path(recipe), class:"card-footer-item has-text-light", method: :delete, data: {confirm: "Please confirm that you agree to delete this recipe." } %>
-          </footer>
-        </div>
+        <%= render recipe, instruction: true %>
       </div>
     <% end %>
   </div>

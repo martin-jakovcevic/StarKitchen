@@ -1,0 +1,66 @@
+<% if local_assigns[:instruction] %>
+  <div class="card-content">
+    <div class="card has-text-white	has-background-grey-dark">
+        <header class="card-header">
+          <p class="card-header-title has-text-white ">
+            Description
+          </p>
+        </header>
+      <div class="card-content ">
+        <div class="content ">
+          <%= recipe.description %>
+        </div>
+      </div>
+      <footer class="card-footer ">
+      <% if local_assigns[:show] %>
+
+        <%= link_to "Back", root_path, class: "card-footer-item has-text-light "%>
+      <% else %>
+        <%= link_to 'Show', recipe_path(recipe), class: "card-footer-item has-text-light" %>
+      <% end %>
+        <%= link_to 'Edit', edit_recipe_path(recipe), class: "card-footer-item has-text-light "%>
+        <%= link_to 'Delete', recipe_path(recipe), class:"card-footer-item has-text-light", method: :delete, data: {confirm: "Please confirm that you agree to delete this recipe." } %>
+      </footer>
+    </div>
+  </div>
+<% else %>
+  <div class="card-content">
+    <div class="card has-text-white	has-background-grey-dark">
+        <header class="card-header">
+          <p class="card-header-title has-text-white ">
+            Description
+          </p>
+        </header>
+      <div class="card-content ">
+        <div class="content ">
+          <%= recipe.description %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-content">
+    <div class="card has-text-white	has-background-grey-dark">
+      <header class="card-header">
+        <p class="card-header-title has-text-white ">
+          Instructions
+        </p>
+      </header>
+      <div class="card-content ">
+        <div class="content ">
+          <%= recipe.instructions %>
+        </div>
+      </div>
+      <footer class="card-footer ">
+      <% if local_assigns[:show] %>
+        <%= link_to "Back", root_path, class: "card-footer-item has-text-light "%>
+      <% else %>
+        <%= link_to 'Show', recipe_path(recipe), class: "card-footer-item has-text-light" %>
+      <% end %>
+        <%= link_to 'Edit', edit_recipe_path(recipe), class: "card-footer-item has-text-light "%>
+        <%= link_to 'Delete', recipe_path(recipe), class:"card-footer-item has-text-light", method: :delete, data: {confirm: "Please confirm that you agree to delete this recipe." } %>
+      </footer>
+    </div>
+  </div>
+<% end %>
+
