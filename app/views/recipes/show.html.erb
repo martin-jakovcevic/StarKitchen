@@ -11,5 +11,11 @@
     <div class="column is-4 is-offset-4">
       <%= render @recipe, show: true, instruction: false %>
     </div>
+    <% @recipe.comments.each do |comment| %>
+      <%= render @comments %>
+    <% end %>
+
+    <%= render 'comments/form', recipe: @recipe, comment: @comments.build %>
+
   </div>
 </div>
