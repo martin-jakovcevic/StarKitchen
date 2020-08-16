@@ -8,11 +8,9 @@
       </div>
     </div>
 
-    <% @recipes.each do |recipe| %>
       <div class="column is-4 is-offset-4">
-        <%= render recipe, instruction: true %>
+        <%= render @recipes, instruction: true %>
       </div>
-    <% end %>
   </div>
 </div>
 

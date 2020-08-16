@@ -13,9 +13,10 @@
           <a class="level-item">
             <span class="icon is-small"><i class="fas fa-edit"></i></span>
           </a>
-          <a class="level-item">
-            <span class="icon is-small"><i class="fas fa-trash"></i></span>
-          </a>
+
+          <%= link_to recipe_comment_path(comment.recipe, comment), method: :delete, class: "level-item", data: {confirm: "Please confirm that you agree to delete this recipe." } do %>
+          <span class="icon is-small"><i class="fas fa-trash"></i></span>
+          <% end %>
         </div>
       </nav>
     </div>
