@@ -1,6 +1,6 @@
 <div class="container has-background-black-ter">
   <div class="columns is-multiline has-background-black-ter">
-    <div class="column is-4 is-offset-4">
+    <div class="column is-6 is-offset-3">
       <div class="content is-size-3">
         <div class="card-content">
           <%= @recipe.title %>
@@ -8,14 +8,10 @@
       </div>
     </div>
 
-    <div class="column is-4 is-offset-4">
+    <div class="column is-6 is-offset-3">
       <%= render @recipe, show: true, instruction: false %>
     </div>
 
       <%= render @comments %>
-
-
-    <%= render 'comments/form', recipe: @recipe, comment: @comments.build %>
-
   </div>
 </div>

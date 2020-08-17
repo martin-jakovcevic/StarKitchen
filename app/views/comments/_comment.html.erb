@@ -1,4 +1,4 @@
-<div class="column is-4 is-offset-4">
+<div class="column is-6 is-offset-3 comment">
   <article class="media">
     <div class="media-content">
       <div class="content">
@@ -10,9 +10,10 @@
       </div>
       <nav class="level is-mobile">
         <div class="level-left">
-          <a class="level-item">
+
+          <%= link_to edit_recipe_comment_path(comment.recipe, comment), class: "level-item" do %>
             <span class="icon is-small"><i class="fas fa-edit"></i></span>
-          </a>
+          <% end %>
 
           <%= link_to recipe_comment_path(comment.recipe, comment), method: :delete, class: "level-item", data: {confirm: "Please confirm that you agree to delete this recipe." } do %>
           <span class="icon is-small"><i class="fas fa-trash"></i></span>

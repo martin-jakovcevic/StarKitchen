@@ -1,7 +1,7 @@
 <div class="container has-background-black-ter">
   <div class="columns is-multiline has-background-black-ter">
     <% if recipe.errors.any? %>
-      <div class="column is-4 is-offset-4">
+      <div class="column is-6 is-offset-3">
         <article class="message is-dark">
           <div class="message-body">
             <p><%= pluralize(recipe.errors.count, "error") %> prohibited this recipe to be created:</p>
@@ -16,14 +16,13 @@
       </div>
     <% end %>
 
-
-    <div class="column is-4 is-offset-4">
+    <div class="column is-6 is-offset-3">
       <div class="content is-size-2">
         <%= headline %>
       </div>
     </div>
 
-    <div class="column is-4 is-offset-4">
+    <div class="column is-6 is-offset-3">
       <%= form_with model: recipe, local: true do |form| %>
         <div class="field ">
           <%= form.label :title, class: "label has-text-light" %>
