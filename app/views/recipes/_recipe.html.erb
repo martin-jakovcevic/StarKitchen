@@ -18,8 +18,11 @@
       <% else %>
         <%= link_to 'Show', recipe_path(recipe), class: "card-footer-item has-text-light" %>
       <% end %>
+
         <%= link_to 'Edit', edit_recipe_path(recipe), class: "card-footer-item has-text-light "%>
+      <% if local_assigns[:show] %>
         <%= link_to 'New Comment', new_recipe_comment_path(recipe), class: "card-footer-item has-text-light" %>
+      <% end %>
         <%= link_to 'Delete', recipe_path(recipe), class:"card-footer-item has-text-light", method: :delete, data: {confirm: "Please confirm that you agree to delete this recipe." } %>
       </footer>
     </div>
