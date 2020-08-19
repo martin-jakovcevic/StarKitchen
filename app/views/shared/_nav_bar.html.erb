@@ -14,7 +14,13 @@
     <div class="navbar-end">
       <div class="navbar-item">
         <div class="buttons">
-          <%= link_to 'New Recipe', new_recipe_path, class: "button is-black-ter has-text-weight-bold" %>
+          <%= link_to "New Recipe", new_recipe_path, class: "button is-black-ter has-text-weight-bold" %>
+          <% if logged_in? %>
+            <%= link_to "Log out", logout_path, method: :delete, class: "button is-black-ter has-text-weight-bold" %>
+          <% else %>
+            <%= link_to "Log in", login_path, class: "button is-black-ter has-text-weight-bold" %>
+            <%= link_to "Sign up", users_signup_path, class: "button is-black-ter has-text-weight-bold" %>
+          <% end %>
         </div>
       </div>
     </div>
