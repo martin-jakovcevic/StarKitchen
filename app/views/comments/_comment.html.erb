@@ -3,22 +3,22 @@
     <div class="media-content">
       <div class="content">
         <p>
-          <%= comment.commenter %><small> <%= time_ago_in_words(comment.created_at) %> </small>
+          <%= comment.user.name %><small> <%= time_ago_in_words(comment.created_at) %> </small>
           <br>
           <%= comment.body %>
         </p>
       </div>
       <nav class="level is-mobile">
-        <div class="level-left">
-
-          <%= link_to edit_recipe_comment_path(comment.recipe, comment), class: "level-item" do %>
-            <span class="icon is-small"><i class="fas fa-edit"></i></span>
-          <% end %>
-
-          <%= link_to recipe_comment_path(comment.recipe, comment), method: :delete, class: "level-item", data: {confirm: "Please confirm that you agree to delete this recipe." } do %>
-          <span class="icon is-small"><i class="fas fa-trash"></i></span>
-          <% end %>
-        </div>
+        <% if valid_user?(comment.user) %>
+          <div class="level-left">
+            <%= link_to edit_recipe_comment_path(comment.recipe, comment), class: "level-item" do %>
+              <span class="icon is-small"><i class="fas fa-edit"></i></span>
+            <% end %>
+            <%= link_to recipe_comment_path(comment.recipe, comment), method: :delete, class: "level-item", data: {confirm: "Please confirm that you agree to delete this recipe." } do %>
+            <span class="icon is-small"><i class="fas fa-trash"></i></span>
+            <% end %>
+          </div>
+        <% end %>
       </nav>
     </div>
   </article>

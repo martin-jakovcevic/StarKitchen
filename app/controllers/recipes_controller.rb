@@ -26,7 +26,10 @@ class RecipesController < ApplicationController
   def edit
     warning_notice unless logged_in?
     @recipe = Recipe.find(params[:id])
-    warning_notice unless valid_user?(@recipe.user)
+
+    if logged_in?
+      warning_notice unless valid_user?(@recipe.user)
+    end
   end
 
   def destroy

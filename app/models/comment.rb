@@ -1,4 +1,6 @@
 class Comment < ApplicationRecord
   belongs_to :recipe
-  validates :commenter, :body, presence: true
+  belongs_to :user
+
+  validates  :body, presence: true
 end
