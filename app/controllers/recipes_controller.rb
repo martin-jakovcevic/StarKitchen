@@ -9,11 +9,13 @@ class RecipesController < ApplicationController
   end
 
   def new
+    warning_notice unless logged_in?
     @recipe = Recipe.new
   end
 
   def create
-    @recipe = Recipe.new(recipe_params)
+    @recipe = Recipe.new(recipe_params.merge(user: current_user))
+
     if @recipe.save
       redirect_to @recipe
     else
@@ -22,14 +24,22 @@ class RecipesController < ApplicationController
   end
 
   def edit
+    warning_notice unless logged_in?
     @recipe = Recipe.find(params[:id])
+    warning_notice unless valid_user?(@recipe.user)
   end
 
   def destroy
-    recipe = Recipe.find(params[:id])
-    recipe.destroy
+    warning_notice unless logged_in?
 
-    redirect_to root_path
+    recipe = Recipe.find(params[:id])
+
+    if valid_user?(recipe.user)
+      recipe.destroy
+      redirect_to root_path
+    else
+      warning_notice
+    end
   end
 
   def update
@@ -45,6 +55,6 @@ class RecipesController < ApplicationController
   private
 
   def recipe_params
-    params.require(:recipe).permit(:title, :description, :instructions)
+    params.require(:recipe).permit(:title, :description, :instructions,)
   end
 end

@@ -19,9 +19,13 @@ module SessionsHelper
     @current_user = nil
   end
 
-  def logged_in_notice
+  def warning_notice
     flash[:light] = "Please use this website the regular way."
     redirect_to root_path and return
+  end
+
+  def valid_user?(other_user)
+    current_user == other_user
   end
 
 end

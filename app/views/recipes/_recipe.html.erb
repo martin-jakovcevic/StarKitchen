@@ -13,17 +13,22 @@
       </div>
       <footer class="card-footer ">
       <% if local_assigns[:show] %>
-
         <%= link_to "Back", root_path, class: "card-footer-item has-text-light "%>
       <% else %>
         <%= link_to 'Show', recipe_path(recipe), class: "card-footer-item has-text-light" %>
       <% end %>
 
+      <% if logged_in? && valid_user?(recipe.user) %>
         <%= link_to 'Edit', edit_recipe_path(recipe), class: "card-footer-item has-text-light "%>
+      <% end %>
+
       <% if local_assigns[:show] %>
         <%= link_to 'New Comment', new_recipe_comment_path(recipe), class: "card-footer-item has-text-light" %>
       <% end %>
+
+      <% if logged_in? && valid_user?(recipe.user) %>
         <%= link_to 'Delete', recipe_path(recipe), class:"card-footer-item has-text-light", method: :delete, data: {confirm: "Please confirm that you agree to delete this recipe." } %>
+      <% end %>
       </footer>
     </div>
   </div>
@@ -61,9 +66,19 @@
       <% else %>
         <%= link_to 'Show', recipe_path(recipe), class: "card-footer-item has-text-light" %>
       <% end %>
+
+      <% if logged_in? && valid_user?(recipe.user) %>
         <%= link_to 'Edit', edit_recipe_path(recipe), class: "card-footer-item has-text-light "%>
+      <% end %>
+
+      <% if logged_in? %>
         <%= link_to 'New Comment', new_recipe_comment_path(recipe), class: "card-footer-item has-text-light" %>
+      <% end %>
+
+      <% if logged_in? && valid_user?(recipe.user)%>
         <%= link_to 'Delete', recipe_path(recipe), class:"card-footer-item has-text-light", method: :delete, data: {confirm: "Please confirm that you agree to delete this recipe." } %>
+      <% end %>
+
       </footer>
     </div>
   </div>
