@@ -19,4 +19,9 @@ module SessionsHelper
     @current_user = nil
   end
 
+  def logged_in_notice
+    flash[:light] = "Please use this website the regular way."
+    redirect_to root_path and return
+  end
+
 end

@@ -2,6 +2,7 @@ class SessionsController < ApplicationController
   include SessionsHelper
 
   def new
+    logged_in_notice if logged_in?
   end
 
   def create
