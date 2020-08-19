@@ -1,13 +1,9 @@
 # README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
 Things you may want to cover:
 
-* Ruby version
+* Ruby version = ruby 2.5.6p201
 
-* System dependencies
+* System dependencies = bulma, fontawesome, rspec, factory_bot
 
 * Configuration
 
@@ -15,9 +11,7 @@ Things you may want to cover:
 
 * Database initialization
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
+* How to run the test suite = rspec
 
 * Deployment instructions
 
