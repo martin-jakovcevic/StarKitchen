@@ -1,0 +1,41 @@
+<div class="column is-6 is-offset-3">
+  <div class="content is-size-1">
+    Sign in
+  </div>
+</div>
+
+
+<div class="column is-6 is-offset-3">
+  <article class="media">
+    <div class="media-content">
+      <%= form_with url: login_path, scope: :session, local: true do |form| %>
+
+        <div class="field">
+          <%= form.label :email, class: "label has-text-light" %>
+          <p class="control">
+            <%= form.email_field :email, class: "input", placeholder: "Your email" %>
+          </p>
+        </div>
+        <div class="field">
+          <%= form.label :password, class: "label has-text-light" %>
+          <p class="control">
+            <%= form.password_field :password, class: "input", placeholder: "Your password" %>
+          </p>
+        </div>
+
+        <nav class="level">
+          <div class="level-left">
+          </div>
+          <div class="level-right">
+            <div class="level-item">
+              <%= form.submit "Login", class: 'button is-light' %>
+            </div>
+            <div class="level-item">
+              <%= link_to 'Back', recipes_path, class: "button is-light has-text-dark" %>
+            </div>
+          </div>
+        </nav>
+      <% end %>
+    </div>
+  </article>
+</div>
